@@ -1,10 +1,12 @@
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { forwardRef } from 'react'
 
 import { Button } from '@/components/Button'
-import { Logo } from '@/components/Logo'
+import LogoBlack from '@/images/logos/logo-black.png'
+import LogoWhite from '@/images/logos/logo-white.png'
 import {
   MobileNavigation,
   useIsInsideMobileNavigation,
@@ -37,12 +39,12 @@ export const Header = forwardRef<
   React.ComponentRef<'div'>,
   React.ComponentPropsWithoutRef<typeof motion.div>
 >(function Header({ className, ...props }, ref) {
-  let { isOpen: mobileNavIsOpen } = useMobileNavigationStore()
-  let isInsideMobileNavigation = useIsInsideMobileNavigation()
+  const { isOpen: mobileNavIsOpen } = useMobileNavigationStore()
+  const isInsideMobileNavigation = useIsInsideMobileNavigation()
 
-  let { scrollY } = useScroll()
-  let bgOpacityLight = useTransform(scrollY, [0, 72], ['50%', '90%'])
-  let bgOpacityDark = useTransform(scrollY, [0, 72], ['20%', '80%'])
+  const { scrollY } = useScroll()
+  const bgOpacityLight = useTransform(scrollY, [0, 72], ['50%', '90%'])
+  const bgOpacityDark = useTransform(scrollY, [0, 72], ['20%', '80%'])
 
   return (
     <motion.div
@@ -71,13 +73,35 @@ export const Header = forwardRef<
             'bg-zinc-900/7.5 dark:bg-white/7.5',
         )}
       />
+
+      {/* Suche links */}
       <Search />
+
+      {/* Mobile: Burger + Logo */}
       <div className="flex items-center gap-5 lg:hidden">
         <MobileNavigation />
-        <CloseButton as={Link} href="/" aria-label="Home">
-          <Logo className="h-6" />
+
+        {/* Kein verschachtelter Link mehr */}
+        <CloseButton as={Link} href="/" aria-label="Home" className="inline-flex items-center">
+          <span className="sr-only">Home</span>
+          {/* Light/White Mode → weißes Logo */}
+          <Image
+            src={LogoWhite}
+            alt="Pipvaro"
+            className="h-13 w-auto dark:hidden"
+            priority
+          />
+          {/* Dark Mode → schwarzes Logo */}
+          <Image
+            src={LogoBlack}
+            alt=""
+            className="hidden h-13 w-auto dark:block"
+            priority
+          />
         </CloseButton>
       </div>
+
+      {/* Rechts: Nav, Toggle, CTA */}
       <div className="flex items-center gap-5">
         <nav className="hidden md:block">
           <ul role="list" className="flex items-center gap-8">
