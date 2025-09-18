@@ -45,7 +45,6 @@ function useAutocomplete({ onNavigate }: { onNavigate: () => void }) {
     if (itemUrl) {
       router.push(itemUrl)
     }
-
     onNavigate()
   }
 
@@ -65,9 +64,7 @@ function useAutocomplete({ onNavigate }: { onNavigate: () => void }) {
       shouldPanelOpen({ state }) {
         return state.query !== ''
       },
-      navigator: {
-        navigate,
-      },
+      navigator: { navigate },
       getSources({ query }) {
         return import('@/mdx/search.mjs').then(({ search }) => {
           return [
@@ -116,7 +113,6 @@ function NoResultsIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 function LoadingIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   let id = useId()
-
   return (
     <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" {...props}>
       <circle cx="10" cy="10" r="5.5" strokeLinejoin="round" />
@@ -146,7 +142,7 @@ function LoadingIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 function HighlightQuery({ text, query }: { text: string; query: string }) {
   return (
     <Highlighter
-      highlightClassName="underline bg-transparent text-emerald-500"
+      highlightClassName="underline bg-transparent text-[#3f4bf2]"
       searchWords={[query]}
       autoEscape={true}
       textToHighlight={text}
@@ -191,7 +187,7 @@ function SearchResult({
       <div
         id={`${id}-title`}
         aria-hidden="true"
-        className="text-sm font-medium text-zinc-900 group-aria-selected:text-emerald-500 dark:text-white"
+        className="text-sm font-medium text-zinc-900 group-aria-selected:text-[#3f4bf2] dark:text-white"
       >
         <HighlightQuery text={result.title} query={query} />
       </div>
@@ -288,12 +284,9 @@ const SearchInput = forwardRef<
             !autocompleteState.isOpen &&
             autocompleteState.query === ''
           ) {
-            // In Safari, closing the dialog with the escape key can sometimes cause the scroll position to jump to the
-            // bottom of the page. This is a workaround for that until we can figure out a proper fix in Headless UI.
             if (document.activeElement instanceof HTMLElement) {
               document.activeElement.blur()
             }
-
             onClose()
           } else {
             inputProps.onKeyDown(event)
@@ -302,7 +295,7 @@ const SearchInput = forwardRef<
       />
       {autocompleteState.status === 'stalled' && (
         <div className="absolute inset-y-0 right-3 flex items-center">
-          <LoadingIcon className="h-5 w-5 animate-spin stroke-zinc-200 text-zinc-900 dark:stroke-zinc-800 dark:text-emerald-400" />
+          <LoadingIcon className="h-5 w-5 animate-spin stroke-zinc-200 text-zinc-900 dark:stroke-zinc-800 dark:text-[#3f4bf2]" />
         </div>
       )}
     </div>
@@ -337,9 +330,7 @@ function SearchDialog({
   }, [pathname, searchParams, setOpen])
 
   useEffect(() => {
-    if (open) {
-      return
-    }
+    if (open) return
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
@@ -347,12 +338,8 @@ function SearchDialog({
         setOpen(true)
       }
     }
-
     window.addEventListener('keydown', onKeyDown)
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown)
-    }
+    return () => window.removeEventListener('keydown', onKeyDown)
   }, [open, setOpen])
 
   return (

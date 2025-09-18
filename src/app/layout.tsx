@@ -9,9 +9,20 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Protocol API Reference',
-    default: 'Protocol API Reference',
+    template: 'Pipvaro | Docs',
+    default: 'Pipvaro | Docs',
   },
+  description:
+    'Smarter decisions, seamless execution with Pipvaro across every market.',
+      icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png' },
+    ],
+  }
 }
 
 export default async function RootLayout({
