@@ -116,7 +116,7 @@ export const Header = forwardRef<
           <ThemeToggle />
         </div>
         <div className="hidden min-[416px]:contents">
-          <Button href="#">Sign in</Button>
+          <Button href="https://app.pipvaro.com">Dashboard</Button>
         </div>
       </div>
     </motion.div>
