@@ -6,6 +6,7 @@ import { Layout } from '@/components/Layout'
 import { type Section } from '@/components/SectionProvider'
 
 import '@/styles/tailwind.css'
+import Script from 'next/script'
 
 export const metadata: Metadata = {
   title: {
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     'Smarter decisions, seamless execution with Pipvaro across every market.',
-      icons: {
+  icons: {
     icon: [
       { url: '/favicon.ico' },
       { url: '/icon.png', type: 'image/png' },
@@ -44,9 +45,20 @@ export default async function RootLayout({
       <body className="flex min-h-full bg-white antialiased dark:bg-zinc-900">
         <Providers>
           <div className="w-full">
-            <Layout allSections={allSections}>{children}</Layout>
+            <Layout allSections={allSections}>{children}
+
+              {/* Drittanbieter-Widget korrekt einbinden */}
+              <Script
+                src="https://widget.nixera.net/widget.js"
+                strategy="afterInteractive"
+                data-organization-id="org_333WJG9j9bu3PyJkfp3XHfRdbGB"
+              />
+
+
+            </Layout>
           </div>
         </Providers>
+
       </body>
     </html>
   )
