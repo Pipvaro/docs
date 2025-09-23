@@ -1,0 +1,107 @@
+export const metadata = {
+  title: 'Pipvaro Setup',
+  description:
+    'Step-by-step guide to connect MT5 with Pipvaro: create your account, add a receiver, attach the EA, activate your license, and verify everything with a snapshot.',
+}
+
+# Pipvaro Setup
+
+This guide walks you through connecting MetaTrader 5 to Pipvaro, from account creation to your first healthy <strong>Snapshot</strong>. {{ className: 'lead' }}
+
+<Note>
+  You’ll need an MT5 account with <strong>algorithmic trading</strong> enabled and permission
+  to attach an Expert Advisor (EA) to a chart.
+</Note>
+
+## 1) Create your Pipvaro account
+
+1. Open the Pipvaro Dashboard and click <strong>Sign up</strong>.
+2. Verify your email and log in.
+3. Optional: Join our <strong>Discord</strong> for quick support and updates.
+
+![Account creation](/images/docs/setup-account-placeholder.png "Replace with screenshot")
+
+## 2) Choose a plan
+
+Pick between <strong>Novar</strong> or <strong>Lunar</strong>. By default you can start with <strong>Fusion</strong> and upgrade anytime after setup.
+
+<Note>
+  <strong>Tip:</strong> Plans can be upgraded later without re-installing the EA. Choose a starter plan,
+  finish setup, then scale as needed.
+</Note>
+
+## 3) Create a Receiver
+
+1. In the Dashboard, go to <strong>Receivers → New Receiver</strong>.  
+2. Give it a clear name (e.g., <em>Main MT5</em>).  
+3. Copy the generated <strong>Receiver ID</strong> — you’ll need it inside MT5.
+
+![Create receiver](/images/docs/setup-receiver-placeholder.png)
+
+## 4) Download and attach the Expert Advisor (EA)
+
+1. Download the latest <strong>Pipvaro EA</strong> from the Dashboard (Downloads/Resources).  
+2. In <strong>MT5</strong>, open <em>File → Open Data Folder</em> and place the EA into
+   <code>MQL5/Experts/</code> (restart MT5 if needed).  
+3. Drag the EA onto the chart you wish to automate.
+
+<Note>
+  <strong>Warning:</strong> Make sure <strong>Auto Trading</strong> is enabled in MT5. If it’s off, the EA cannot communicate with Pipvaro.
+</Note>
+
+![Attach EA](/images/docs/setup-ea-placeholder.png)
+
+## 5) Enter your License and Receiver IDs
+
+On the EA input panel:
+
+- <strong>License Key / License ID</strong> — paste from Dashboard → Licenses.  
+- <strong>Receiver ID</strong> — the ID you created in step 3.
+
+Click <strong>OK</strong> to save the inputs.
+
+## 6) Allow <code>api.pipvaro.com</code> in MT5 Algo Trading
+
+In MT5, go to <strong>Tools → Options → Expert Advisors</strong> and:
+
+- Check <strong>Allow WebRequest for listed URL</strong>.  
+- Add <code>https://api.pipvaro.com</code>.  
+- Keep the other recommended checkboxes enabled for EA operation.
+
+![Allow WebRequest](/images/docs/setup-webrequest-placeholder.png)
+
+## 7) Open the Pipvaro chat (optional but recommended)
+
+Add the <strong>Pipvaro</strong> chat in your dashboard/community so you can ask quick questions
+and see announcements. It’s usually the fastest route for help.
+
+## 8) Run a Snapshot and verify status
+
+Back in the Dashboard, open your <strong>Receiver</strong> and click <strong>Run Snapshot</strong>.
+
+You should see:
+
+- <strong>Status: Online</strong>  
+- <strong>Account details</strong> (login, balance, leverage)  
+- Last heartbeat time within the past few seconds
+
+<Note>
+  If Snapshot shows <strong>Offline</strong>, check: Auto Trading toggle, EA still attached, license/receiver IDs, and the <code>api.pipvaro.com</code> WebRequest entry.
+</Note>
+
+## 9) Happy trading 🎉
+
+Your MT5 is connected to Pipvaro. Configure your preferred presets, risk, and symbols in the Dashboard and let automation do the heavy lifting.
+
+<div className="not-prose mt-6">
+  <Button href="/resources" variant="text" arrow="right">
+    <>Next: Resources & Downloads</>
+  </Button>
+</div>
+
+## Troubleshooting (quick)
+
+- <strong>EA not loading?</strong> Restart MT5 after copying files to <code>MQL5/Experts/</code>.  
+- <strong>Snapshot offline?</strong> Verify WebRequest URL and check MT5 Auto Trading.  
+- <strong>License error?</strong> Confirm you pasted the correct <strong>License Key</strong> and it’s active for this receiver.  
+- <strong>No trades?</strong> Make sure market is open, symbol is supported, and EA is on the right chart/timeframe.

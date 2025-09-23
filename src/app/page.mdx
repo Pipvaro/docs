@@ -1,43 +1,65 @@
-import { Guides } from '@/components/Guides'
-import { Resources } from '@/components/Resources'
-import { HeroPattern } from '@/components/HeroPattern'
-
 export const metadata = {
-  title: 'Pipvaro | Docs',
+  title: 'API Documentation',
   description:
-    'Smarter decisions, seamless execution with Pipvaro across every market.',
+    'Meet Pipvaro — automated trading made simple. Learn what Pipvaro does, how it works, and where to get started.',
 }
-
-export const sections = [
-  { title: 'Guides', id: 'guides' },
-  { title: 'Resources', id: 'resources' },
-]
-
-<HeroPattern />
 
 # API Documentation
 
-Use the Protocol API to access contacts, conversations, group messages, and more and seamlessly integrate your product into the workflows of dozens of devoted Protocol users. {{ className: 'lead' }}
+Use Pipvaro to automate strategy execution on MT5 with managed receivers, safe key-based licensing, and a clean dashboard for monitoring. Plug it into your workflow and let the bot handle entries, exits, and risk while you focus on strategy. {{ className: 'lead' }}
 
-<div className="not-prose mt-6 mb-16 flex gap-3">
-  <Button href="/quickstart" arrow="right">
-    <>Quickstart</>
+![Pipvaro overview](/images/docs/intro-hero-placeholder.png "Replace with your hero image")
+
+<Note>
+  Pipvaro is optimized for MetaTrader 5. You’ll connect a <strong>Receiver</strong> to your MT5
+  terminal, activate algorithmic trading, and control behavior from the Pipvaro Dashboard.
+</Note>
+
+## Getting started
+
+Create an account, pick a plan, connect your first <strong>Receiver</strong> in MT5, and activate your license key. The full step-by-step guide walks you through screenshots and common pitfalls.
+
+<div className="not-prose mt-6 flex gap-3">
+  <Button href="/pipvaro-setup" variant="primary" arrow="right">
+    <>Get started</>
   </Button>
-  <Button href="/sdks" variant="outline">
-    <>Explore SDKs</>
+  <Button href="https://pipvaro.com" variant="secondary">
+    <>Visit website</>
   </Button>
 </div>
 
-## Getting started {{ anchor: false }}
+## What is Pipvaro?
 
-To get started, create a new application in your [developer settings](#), then read about how to make requests for the resources you need to access using our HTTP APIs or dedicated client SDKs. When your integration is ready to go live, publish it to our [integrations directory](#) to reach the Protocol community. {{ className: 'lead' }}
+Pipvaro is an automation layer for trading on MT5. It includes:
+
+- <strong>Dashboard</strong> — configure receivers, keys, and risk presets.
+- <strong>Expert Advisor (EA)</strong> — a lightweight MT5 expert that talks to Pipvaro.
+- <strong>Receivers</strong> — the bridge between your MT5 account and Pipvaro.
+- <strong>Licensing</strong> — keys tied to your account/receiver for secure use.
+- <strong>Snapshots</strong> — a quick health check showing connection status and account info.
+
+<Note>
+  <strong>Tip:</strong> New to MT5? The setup guide includes the essential MT5 steps like
+  enabling algo trading and attaching the EA to your chart.
+</Note>
+
+## Useful links
+
+- Dashboard: **(add your dashboard URL)**
+- Download EA: **(direct download link)**
+- Community & Support: **(Discord/Contact link)**
+- Status & Changelog: **(status page / release notes link)**
+
+## Guides
+
+Explore popular topics:
+
+- <strong>Pipvaro Setup</strong> – complete first-time setup with screenshots.
+- <strong>Receivers & Licenses</strong> – how IDs, keys, and limits work.
+- <strong>Troubleshooting & FAQ</strong> – common errors and quick fixes.
 
 <div className="not-prose">
-  <Button href="/sdks" variant="text" arrow="right">
-    <>Get your API key</>
+  <Button href="/pipvaro-setup" variant="text" arrow="right">
+    <>Read the Pipvaro Setup guide</>
   </Button>
 </div>
-
-<Guides />
-
-<Resources />

@@ -237,15 +237,15 @@ export const navigation: Array<NavGroup> = [
     title: 'Guides',
     links: [
       { title: 'Introduction', href: '/' },
-      { title: 'Pipvaro Setup', href: '/quickstart' },
+      { title: 'Pipvaro Setup', href: '/pipvaro-setup' },
+      { title: 'Pipvaro Dashboard', href: '/pipvaro-dashboard' },
     ],
   },
   {
     title: 'Resources',
     links: [
-      { title: 'Support & Community', href: '/contacts' },
-      { title: 'Troubleshooting & FAQ', href: '/conversations' },
-      { title: 'Changelog & Release Notes', href: '/messages' },
+      { title: 'Support & Community', href: '/support-community' },
+      { title: 'Troubleshooting & FAQ', href: '/troubleshooting-faq' },
     ],
   },
 ]
