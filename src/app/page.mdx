@@ -1,3 +1,6 @@
+import Image from 'next/image'
+import dummy from '@/images/dummy.png'
+
 export const metadata = {
   title: 'API Documentation',
   description:
@@ -8,7 +11,16 @@ export const metadata = {
 
 Use Pipvaro to automate strategy execution on MT5 with managed receivers, safe key-based licensing, and a clean dashboard for monitoring. Plug it into your workflow and let the bot handle entries, exits, and risk while you focus on strategy. {{ className: 'lead' }}
 
-![Pipvaro overview](/images/docs/intro-hero-placeholder.png "Replace with your hero image")
+
+<div className="not-prose">
+  <Image
+    src={dummy}
+    alt="Pipvaro overview"
+    className="rounded-2xl border border-white/10"
+    priority
+    sizes="(min-width: 1024px) 768px, 100vw"
+  />
+</div>
 
 <Note>
   Pipvaro is optimized for MetaTrader 5. You’ll connect a <strong>Receiver</strong> to your MT5

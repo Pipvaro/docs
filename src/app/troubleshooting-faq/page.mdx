@@ -1,0 +1,86 @@
+export const metadata = {
+  title: 'Troubleshooting & FAQ',
+  description:
+    'Fix common setup issues quickly and find answers to frequently asked questions.',
+}
+
+# Troubleshooting & FAQ
+
+Run through these quick checks first; they solve most issues. {{ className: 'lead' }}
+
+## Common issues & quick fixes
+
+### EA shows “offline” or Snapshot not updating
+- Auto Trading is disabled in MT5. Toggle the green **Auto Trading** button.
+- WebRequest is not allowed. Add **https://api.pipvaro.com** under **Tools → Options → Expert Advisors** and enable the checkbox.
+- EA not attached or attached to the wrong chart. Re-attach the EA to the correct symbol/timeframe.
+- Wrong IDs. Double-check **License Key / License ID** and **Receiver ID**.
+- Firewall or antivirus blocking connections. Whitelist MT5 and allow the EA’s network access.
+
+### Nothing happens (no trades)
+- Market is closed or the symbol is not supported on your plan.
+- Risk or position limits are reached (for example max open trades).
+- Outdated EA build. Download the latest EA and restart MT5.
+
+### “Invalid license” or “Not authorized”
+- License key has extra spaces or characters — paste it exactly.
+- License is not assigned to this **Receiver** in the Dashboard.
+- Plan inactive or expired — check billing.
+
+### EA missing or cannot load from Experts
+- Files copied to the wrong terminal (multiple MT5 installs).
+- Copy the EA to **MQL5/Experts/** and **restart** MT5.
+- Check the **Experts** and **Journal** tabs for specific errors.
+
+### Wrong platform
+- Pipvaro supports **MT5**. MT4 or other platforms will not work.
+
+<Note>
+  Still stuck? Ask in Discord with your <strong>Receiver ID</strong> and a screenshot of the MT5 <em>Experts</em> tab: <a href="https://dc.pipvaro.com" target="_blank" rel="noopener">dc.pipvaro.com</a>.
+</Note>
+
+---
+
+## Frequently Asked Questions
+
+### Which platforms and brokers are supported?
+Pipvaro runs on **MT5** and works with brokers that support MT5 via the Receiver app.
+
+### Do I need my own VPS?
+Plans that include hosting run 24/7 on a managed Windows VPS (RDP access). If your plan does not include hosting, run the receiver on your own PC or VPS.
+
+### Can I use this for prop-firm accounts?
+Yes. Built-in risk controls (daily/max drawdown, position caps, time/news filters) help you stay within common rules.
+
+### Can I start on demo or free?
+Yes. You can start on a free tier to test, then upgrade anytime for more markets and higher frequency.
+
+### How many markets are on each plan?
+- **Fusion:** XAUUSD  
+- **Lunar:** FX majors and metals  
+- **Nova:** FX, metals, and indices
+
+### Can I pause the bot or manage trades manually?
+Yes. You can pause/resume per receiver in one click, and you can still manage or close trades directly in MT5.
+
+### How does risk management work?
+You configure daily/max drawdown, per-symbol and global position caps, SL/TP modes, breakeven and optional trailing. The EA enforces your settings.
+
+### Is my data and access secure?
+Broker credentials stay on your **Receiver**. Config and logs are stored securely and traffic is encrypted. You can revoke a receiver at any time.
+
+### How do billing and cancellations work?
+Subscriptions are monthly. You can change or cancel plans anytime; taxes may apply based on your region.
+
+---
+
+## Need more help?
+
+<div className="not-prose mt-6 flex gap-3">
+  <Button href="https://dc.pipvaro.com" variant="primary" arrow="right">
+    <>Ask in Discord</>
+  </Button>
+  <Button href="mailto:support@pipvaro.com" variant="secondary">
+    <>Email support</>
+  </Button>
+</div>
